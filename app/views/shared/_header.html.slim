@@ -1,0 +1,19 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        /! <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a
+        = link_to 'Home',home_index_path, class: "nav-link"
+      li.nav-item
+        = link_to 'About me',about_me_index_path, class: "nav-link"
+      li.nav-item
+        a.nav-link href="#"  Blog
+      li.nav-item
+        a.nav-link href="#"  Questions and answers
+      li.nav-item
+        a.nav-link.disabled href="#"  Disabled
+    form.form-inline.my-2.my-lg-0
+      input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="text" /
+      button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
