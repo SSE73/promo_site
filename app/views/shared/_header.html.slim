@@ -1,24 +1,3 @@
-/nav.navbar.navbar-expand-lg.navbar-light.bg-light
-/  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
-/    span.navbar-toggler-icon
-/  #navbarSupportedContent.collapse.navbar-collapse
-/    ul.navbar-nav.mr-auto
-/      li.nav-item.active
-        ! <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a
-/        = link_to 'Home',home_index_path, class: "nav-link"
-/      li.nav-item
-/        = link_to 'About me',about_me_index_path, class: "nav-link"
-/      li.nav-item
-/        = link_to 'Blog', posts_path, class: "nav-link"
-/      li.nav-item
-/        a.nav-link href="#"  Questions and answers
-/      li.nav-item
-/        a.nav-link.disabled href="#"  Disabled
-/    form.form-inline.my-2.my-lg-0
-/      input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="text" /
-/      button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
-
-
 header.header_top
   .header_topline
     .container
@@ -36,16 +15,9 @@ header.header_top
                   = link_to "Вход/", new_user_session_path, class: "nav-link"
                   = link_to "Регистрация", new_user_registration_path, class: "nav-link"
               .header_social_buttons
-                /a[href="#" target="_blank"]
-                /  i.fa.fa-facebook[aria-hidden="true"]
-                /a[href="#" target="_blank"]
-                /  i.fa.fa-vk
-                /a[href="#" target="_blank"]
-                /  i.fa.fa-twitter
   .container
     .col-md-12
       .row
-        /a.logo[href="#" target="_blank"]
         .logo
           | Ruby on Rails
         nav.navbar.navbar-expand-lg.navbar-light.main_menu
@@ -72,109 +44,6 @@ header.header_top
             form.form-inline.my-2.my-lg-0
               input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="text" /
               button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
-
-          /.header_top_contacts
-          /  i.fa.fa-mobile
-          /  |  8-345-400-780
         h1
           |  Разработка Ruby on Rails приложений
-
-/header.header_top
-/  .header_topline
-/    .container
-/      .col-md-12
-/        .row
-/          button.auth_buttons.hidden-md.hidden-lg.hidden-sm
-/            i.fa.fa-user
-/          .header_toplinks
-/            a[href="#" target="_blank"]
-/              | Вход
-/            |  /
-/            a[href="#" target="_blank"]
-/              | Регистрация
-/          .header_social_buttons
-/            a[href="#" target="_blank"]
-/              i.fa.fa-facebook[aria-hidden="true"]
-/            a[href="#" target="_blank"]
-/              i.fa.fa-vk
-/            a[href="#" target="_blank"]
-/              i.fa.fa-twitter
-/  .container
-/    .col-md-12
-/      .row
-/        a.logo[href="#" target="_blank"]
-/          | Ruby on Rails
-/        nav.main_menu.clearfix
-/          button.main_mnu_button.hidden-md.hidden-lg
-/            i.fa.fa-bars
-/          ul
-/            li.active
-/              a[href="#" target="_blank"]
-/                | Главная
-/            li
-/              a[href="#" target="_blank"]
-/                | Портфолио
-/            li
-/              a[href="#" target="_blank"]
-/                | Отзывы
-/          .header_top_contacts
-/            i.fa.fa-mobile
-/            |  8-345-400-780
-/        h1
-/          | Разработки Ruby on Rails приложений
-
-
-            /.container
-            /  nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
-            /    a.navbar-brand[href="#"]
-            /      | Блог на RoR
-            /    #navbarSupportedContent.collapse.navbar-collapse
-            /      ul.navbar-nav.mr-auto
-            /        |  <li class="nav-item
-            /        = 'active' if current_page?(root_path) || current_page?(posts_path)
-            /        | "> <a class="nav-link" href="
-            /        = root_path
-            /        | ">Все статьи
-            /        - Category.order(:name).roots.each do |category|
-            /          |  <li class="nav-item
-            /          = 'active' if current_page?(category_path(category))
-            /          | ">
-            /          = link_to category.name, category, class: 'nav-link'
-            /      ul.navbar-nav.pull-xs-right
-            /        - if user_signed_in?
-            /          li.nav-item
-            /            = link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-link"
-            /        - else
-            /          li.nav-item
-            /            = link_to "Вход", new_user_session_path, class: "nav-link"
-            /          li.nav-item
-            /            = link_to "Регистрация", new_user_registration_path, class: "nav-link"
-            /        |  <li class="nav-item
-            /        = " active" if I18n.locale == :ru
-            /        | ">
-            /        = link_to "Рус", { locale: :ru }, class: "nav-link"
-            /        |  <li class="nav-item
-            /        = " active" if I18n.locale == :en
-            /        | ">
-            /        = link_to "En", { locale: :en }, class: "nav-link"
-            /.container.main
-            /  .row
-            /    .col-md-12
-            /      - flash.each do |name, message|
-            /        |  <div class="alert
-            /        = bootstrap_class_for(name)
-            /        | ">
-            /        button.close[data-dismiss="alert"]
-            /          | ×
-            /        = message
-            /.row
-            /  .col-md-9
-            /    = yield
-            /  .col-md-3
-            /    = render 'shared/submenu'
-            /    .tag_cloud
-            /      h2
-            /        | Теги
-            /      - tag_cloud(Tag.counts, %w{tag1 tag2 tag3 tag4 tag5}) do |tag, css_class|
-            /        = link_to tag.name, tag_path(tag.name), class: css_class
 
