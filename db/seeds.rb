@@ -1,7 +1,45 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+def rand(size)
+  FFaker::Random.rand(size)
+end
+
+FFaker::Random.seed = 42
+
+# Create some users
+
+10.times do
+  User.find_or_create_by name: FFaker::Internet.user_name, email: FFaker::Internet.email
+end
+
+# 10.times do
+#   # User.find_or_create_by name: FFaker::Internet.user_name
+#   User.find_or_create_by email: FFaker::Internet.user_email
+# end
+
+# Lets first 7 of them to be creators
+User.where(id: User.select(:id).first(7)).update_all(creator: true)
+# Lets first 2 of them to be moderators
+User.where(id: User.select(:id).last(2)).update_all(moderator: true)
+# User.first(2).each { |u| u.update moderator: true }
+
+# Generate some posts
+creators = User.where(creator: true)
+
+20.times do
+  body = FFaker::HipsterIpsum.paragraphs(20).join "\n\n"
+  user = creators[rand(creators.length)]
+  Post.create_with(body: body, user: user)
+      .find_or_create_by(title: FFaker::HipsterIpsum.sentence)
+end
+
+# Generate some comment
+users = User.all
+posts = Post.all
+
+200.times do
+  post = posts[rand(creators.length)]
+  user = users[rand(creators.length)]
+  body = FFaker::HipsterIpsum.paragraph
+  Comment.find_or_create_by user: user, post: post, body: body
+end
+
