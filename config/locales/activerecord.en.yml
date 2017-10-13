@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    models:
+      post: 'Post'
+    attributes:
+      post:
+        title: 'Title'
+    errors:
+      messages:
+        blank: "can't be blank"

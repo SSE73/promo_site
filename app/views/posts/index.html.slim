@@ -1,4 +1,9 @@
-h1 Posts
+article.post
+  = t('.title')
+  - if user_signed_in? #&& current_user.admin?
+    = link_to 'Новая статья', new_post_path, class: 'btn btn-outline-primary btn-sm'
 
-- @posts.each do |post|
-   h3 = post.title
+section#posts
+  = render @posts
+
+= paginate @posts

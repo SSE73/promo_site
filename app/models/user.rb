@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   # ДЗ Сформировать ActiveRecord запрос для получения всех постов, написанных администраторами(PS: creator = true)
 
-  scope :creator, -> { where(creator: true) }
+  # scope :creator, -> { where(creator: true) }
 
   # В консоли проверяем:
 

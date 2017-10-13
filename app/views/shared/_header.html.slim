@@ -12,7 +12,7 @@ header.header_top
                   = link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-link"
                 - else
                   a
-                  = link_to "Вход/", new_user_session_path, class: "nav-link"
+                  = link_to "Вход / ", new_user_session_path, class: "nav-link"
                   = link_to "Регистрация", new_user_registration_path, class: "nav-link"
               .header_social_buttons
   .container

@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//.navbar{
-//  margin-bottom: 30px;
-//}
+.nav-link{
+  display: inline;
+  padding: 0;
+}
 
 *::-webkit-input-placeholder {
   color: #666;
@@ -218,3 +219,5 @@ section.order  {
   background-color: #EEEEEE;
   margin-top: 30px;
 }
+
+
