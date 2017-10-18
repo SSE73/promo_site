@@ -5,6 +5,11 @@ en:
     attributes:
       post:
         title: 'Title'
+        body: 'Body'
+        all_tags: 'Tags'
+      category:
+        name: 'Title'
+        parent_id: 'Parent category'
     errors:
       messages:
         blank: "can't be blank"

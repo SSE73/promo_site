@@ -5,9 +5,21 @@ article.post
     small
       time
         = post.created_at.to_date.strftime("%d %B, %Y")
-        /= link_to post.title, post_path(post, anchor: "disqus_thread"), data: { "disqus-identifier" => "#{post.id}" }
 
-    - if user_signed_in? && (post.user_id == current_user.id)  #&& current_user.admin?
+      - if post.category.present?
+        |  |
+        = link_to post.category.name, post.category
 
-      = link_to 'Изменить', edit_post_path(post)
-      = link_to 'Удалить', post_path(post), method: :delete, data: { confirm: 'Вы уверены?' }
+      = link_to post.title, post_path(post, anchor: "disqus_thread"), data: { "disqus-identifier" => "#{post.id}" }
+
+      - if user_signed_in? && (post.user_id == current_user.id)  #&& current_user.admin?
+
+        = link_to 'Изменить', edit_post_path(post)
+        = link_to 'Удалить', post_path(post), method: :delete, data: { confirm: 'Вы уверены?' }
+
+      /section.post-summary.clearfix
+      /  = image_tag post.image.url(:thumb), class: 'img-thumbnail thumb' if post.image?
+      /  = post.summary
+
+  section.footer-summary
+    = raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'badge badge-primary' }.join(' ')

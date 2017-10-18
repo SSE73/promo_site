@@ -1,0 +1,6 @@
+= render 'shared/breadcrumb', category: @category
+h1
+  = @category.name
+section#posts
+  = render @posts
+= paginate @posts, renderer: 'BootstrapPaginationHelper::LinkRenderer'

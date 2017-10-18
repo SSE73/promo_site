@@ -10,6 +10,10 @@ header.header_top
                 - if user_signed_in?
                   a
                   = link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-link"
+                  span.nav-link.email
+                    | Здравствуйте,
+                    = current_user.email
+                  = link_to "Profile", edit_user_registration_path, class: "nav-link profile"
                 - else
                   a
                   = link_to "Вход / ", new_user_session_path, class: "nav-link"

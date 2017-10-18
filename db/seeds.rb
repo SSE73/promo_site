@@ -8,7 +8,8 @@ FFaker::Random.seed = 42
 # Create some users
 
 10.times do
-  User.find_or_create_by name: FFaker::Internet.user_name, email: FFaker::Internet.email
+  # User.find_or_create_by name: FFaker::Internet.user_name, email: FFaker::Internet.email
+  User.create name: FFaker::Internet.user_name, email: FFaker::Internet.email, password: 'qwerty'
 end
 
 # 10.times do
@@ -28,8 +29,11 @@ creators = User.where(creator: true)
 20.times do
   body = FFaker::HipsterIpsum.paragraphs(20).join "\n\n"
   user = creators[rand(creators.length)]
-  Post.create_with(body: body, user: user)
-      .find_or_create_by(title: FFaker::HipsterIpsum.sentence)
+  Post.create! body: body, user: user, title: FFaker::HipsterIpsum.sentence
+  # Post.create_with(body: body, user: user).create title: FFaker::HipsterIpsum.sentence
+
+  # .create title: FFaker::HipsterIpsum.sentence
+      # .find_or_create_by(title: FFaker::HipsterIpsum.sentence)
 end
 
 # Generate some comment

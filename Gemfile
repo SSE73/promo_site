@@ -28,6 +28,9 @@ gem 'slim-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'trix'
+gem 'ancestry'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
