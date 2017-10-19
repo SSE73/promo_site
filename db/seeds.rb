@@ -37,13 +37,13 @@ creators = User.where(creator: true)
 end
 
 # Generate some comment
-users = User.all
-posts = Post.all
-
-200.times do
-  post = posts[rand(creators.length)]
-  user = users[rand(creators.length)]
-  body = FFaker::HipsterIpsum.paragraph
-  Comment.find_or_create_by user: user, post: post, body: body
-end
+# users = User.all
+# posts = Post.all
+#
+# 200.times do
+#   post = posts[rand(creators.length)]
+#   user = users[rand(creators.length)]
+#   body = FFaker::HipsterIpsum.paragraph
+#   Comment.find_or_create_by user: user, post: post, body: body
+# end
 
